@@ -15,4 +15,14 @@ def display_board():
     print(board[6] + " | " + board[7] + " | " + board[8])
 
 
+def play_game():
+    display_board()
+    while game_still_going:
+        handle_turn(current_player)
+        check_if_game_over()
+        flip_player()
+    if winner == "X" or winner == "O":
+        print(winner + " won.")
+    elif winner == None:
+        print("Tie")
 
