@@ -112,3 +112,22 @@ def check_diagonals():
     elif diagonal2:
         return board[6]
     return
+
+
+def check_if_tie():
+    global game_still_going
+    if "-" not in board:
+        game_still_going = False
+    return
+
+
+def flip_player():
+    global current_player
+    if current_player == "X":
+        current_player = "O"
+    elif current_player == "O":
+        current_player = "X"
+    return
+
+
+play_game()
