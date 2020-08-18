@@ -26,3 +26,19 @@ def play_game():
     elif winner == None:
         print("Tie")
 
+
+# handles the next turn
+def handle_turn(player):
+    print(player + "'s turn")
+    position = int(input("Choose a position from 1-9: "))
+    valid = False
+    while not valid:  # will check if the player used the same space
+        while position not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:  # check if the player input from 1-9
+            position = int(input(" Invalid input. Choose a position from 1-9: "))
+        position = int(position)-1
+        if board[position] == '-':
+            valid = True
+        else:
+            print("Invalid input try again")
+    board[position] = player
+    display_board()
