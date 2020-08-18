@@ -42,3 +42,25 @@ def handle_turn(player):
             print("Invalid input try again")
     board[position] = player
     display_board()
+
+
+def check_if_game_over():
+    check_for_winner()
+    check_if_tie()
+
+
+def check_for_winner():  # check for winner
+    global winner
+    row_winner = check_rows()
+    column_winner = check_columns()
+    diagonal_winner = check_diagonals()
+    if row_winner:
+        winner = row_winner
+    elif column_winner:
+        winner = column_winner
+    elif diagonal_winner:
+        winner = diagonal_winner
+    else:
+        winner = None
+    return
+
